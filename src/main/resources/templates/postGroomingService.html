@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Thymleaf Demo</title>
+	<style>
+		p {
+			font-size: 20px;
+			text-align: center;
+			margin: 0px;
+		}
+
+		body {
+			background-color: lightblue;
+			background-repeat: no-repeat;
+			min-height: 100%;
+			background-attachment: fixed;
+			color: rgb(0, 64, 64);
+		}
+
+		div {
+			margin-left: 300px;
+			margin-right: 300px;
+			margin-top: 150px;
+		}
+
+		th {
+			font-size: 22px;
+			border: 1px solid black;
+			background-color: #9BB0C1;
+		}
+
+		td {
+			border: 1px solid black;
+			background-color: #9BB0C1;
+		}
+
+		p {
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+
+		#btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			background: black;
+			color: white;
+			text-transform: uppercase;
+			transition: background-color 0.3s ease;
+
+			margin-top: 20px;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<div th:object="${addGroomingService}">
+		<center>
+			<h1>Success Response</h1>
+		</center>
+		<table>
+			<thead>
+				<tr>
+					<th><strong> Message</strong></th>
+					<th><strong>TimeStamp</strong></th>
+					<th><strong>Status</strong></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<p th:text="*{message}" />
+					</td>
+					<td>
+						<p th:text="*{timestamp}" />
+					</td>
+					<td>
+						<p th:text="*{status}" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<center><button id=btn><a href="/home">Home</button></center>
+</body>
+
+</html>

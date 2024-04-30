@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>List of Pets</title>
+	<style type="text/css">
+		.card {
+			position: relative;
+			width: 190px;
+			height: 254px;
+			background-color: #404243;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			padding: 12px;
+			gap: 12px;
+			border-radius: 8px;
+			cursor: pointer;
+			color: white;
+			margin-bottom: 20px;
+		}
+
+		.card::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			left: -5px;
+			margin: auto;
+			width: 200px;
+			height: 264px;
+			border-radius: 10px;
+			background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+			z-index: -10;
+			pointer-events: none;
+			transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		.card::after {
+			content: "";
+			z-index: -1;
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+			transform: translate3d(0, 0, 0) scale(0.95);
+			filter: blur(20px);
+		}
+
+		.heading {
+			font-size: 20px;
+			text-transform: capitalize;
+			font-weight: 700;
+		}
+
+		.card p:not(.heading) {
+			font-size: 15px;
+
+		}
+
+
+
+		.card:hover::after {
+			filter: blur(10px);
+		}
+
+		.card:hover::before {
+			transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+		}
+
+
+
+
+		.heading {
+			color: darkblue;
+			font-size: 40px;
+			line-height: normal;
+			font-weight: 900;
+			margin-bottom: 5px;
+		}
+
+
+
+		#btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			background-color: black;
+			color: white;
+			text-transform: uppercase;
+			transition: background-color 0.3s ease;
+			position: fixed;
+			margin-left: 400px;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1 class="heading">Vaccinations</h1>
+	</center>
+	<center><button id=btn><a href="/home">Home</button></center>
+	<center>
+		<div th:each="vaccs:${allvaccinations}">
+			<div class="card">
+				<p><strong>Vaccination Id:</strong> <span th:text="${vaccs.vaccinationId}"></span></p>
+				<p><strong>Name :</strong> <span th:text="${vaccs.name}"></span></p>
+				<p><strong>Description :</strong> <span th:text="${vaccs.description}"></span></p>
+				<p><strong>Price :</strong> <span th:text="${vaccs.price}"></span></p>
+			</div>
+
+		</div>
+	</center>
+
+</body>
+
+</html>

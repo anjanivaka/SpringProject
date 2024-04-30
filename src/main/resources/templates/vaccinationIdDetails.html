@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Category details</title>
+	<style>
+		body {
+			background-color: white;
+			background-image: url("https://www.washingtonpost.com/resizer/8NN3yVNP1PZfWreCI6rsQcURVGU=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/SZL5Z2ZLAQ3BFOWNDPYS6RD7GA.jpg");
+			background-repeat: no-repeat;
+			background-position: center;
+			color: black;
+			margin: 0 auto;
+			width: 100%;
+			text-align: left;
+			font-size: 24px;
+			background-size: cover;
+			padding:0;
+			height:100%;
+			height:100vh;
+		}
+
+		div {
+			text-align: center;
+			border-radius: 10px;
+			margin-left: 320px;
+			margin-right: 380px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		table {
+			margin-left: 100px;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			background-color: rgba(208, 240, 255, 0.4);
+			opacity: 3;
+			padding: 20px;
+			/* Reduced padding */
+			width: 80%;
+			/* Adjusted width */
+			border-collapse: collapse;
+			/* Collapsed border */
+		}
+
+		tr,
+		td {
+			border: 1px solid black;
+			padding: 4px;
+			/* Reduced padding */
+		}
+
+		th {
+			color: #A94438;
+			padding: 8px;
+			/* Reduced padding */
+		}
+
+		h1 {
+			color: black;
+			font-family: 'Times New Roman';
+			background-color: white;
+			opacity: 0.8;
+		}
+
+		#btn {
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			background: black;
+			color: white;
+			text-transform: uppercase;
+			transition: background-color 0.3s ease;
+		}
+
+		a {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1>Vaccination</h1>
+	</center>
+	<div th:each="vacc:${vaccinationById}">
+		<table>
+			<thead>
+				<tr>
+					<th>Attribute</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Vaccination Id</td>
+					<td><span th:text="${vacc.vaccinationId}"></span></td>
+				</tr>
+				<tr>
+					<td>Name </td>
+					<td> <span th:text="${vacc.name}"></span></td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><span th:text="${vacc.description}"></span></td>
+				</tr>
+				<tr>
+					<td>Price </td>
+					<td> <span th:text="${vacc.price}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<center><button id="btn"><a href="/home">Home</a></button></center> <!-- Corrected anchor tag placement -->
+</body>
+
+</html>

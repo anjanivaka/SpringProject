@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Retrieve Categories by Id</title>
+	<style type="text/css">
+		.card {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(217, 217, 217, 0.58);
+			border: 1px solid white;
+			box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+			backdrop-filter: blur(6px);
+			border-radius: 5px 5px 5px 5px;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.5s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			font-weight: bolder;
+			color: black;
+
+		}
+
+		.card:hover {
+			border: 1px solid black;
+			transform: scale(1.05);
+		}
+
+		.card:active {
+			transform: scale(0.95) rotateZ(1.7deg);
+		}
+
+		.card img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<h1 style="text-align: center;"><a href="/home"><img
+					src="https://th.bing.com/th/id/OIP.hYxNBYF5cf4p0xPu3Spp_AHaHa?rs=1&pid=ImgDetMain"
+					alt="Pet Shop Sign"></a></h1>
+	</div>
+</body>
+
+</html>

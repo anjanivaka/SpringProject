@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Page</title>
+	<style>
+		.container {
+			max-width: 1200px;
+			margin: 20px auto;
+			padding: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: 20px;
+			background-color: white;
+		}
+
+		.card h2 {
+			color: white;
+			font-size: 20px;
+			margin-bottom: 15px;
+			z-index: 1
+				
+		}
+
+		.card p {
+			color: white;
+			z-index: 1;
+		
+		}
+
+		.card a {
+			z-index: 1;
+		}
+
+		.card a button {
+			background-color: white;
+			color: black;
+			border: white;
+			border-radius: 25px;
+			padding: 12px 25px;
+			cursor: pointer;
+			font-size: 1em;
+			transition: background-color 0.1s ease;
+			z-index: 1;
+		}
+
+		.card a button:hover {
+			background-color: white;
+			z-index: 1;
+		}
+
+		.hidden-cards {
+			display: none;
+		}
+
+		.view-more-toggle {
+			display: none;
+		}
+
+		.view-more-active .hidden-cards {
+			display: flex;
+		}
+
+
+		.container .card:nth-last-child(-10+2) {
+			margin: 0 auto 20px auto;
+		}
+
+
+		h1 {
+			text-align: center;
+			font-size: 30px;
+			color: #333;
+			padding: 20px;
+			background-color: #AAE5F3;
+			border-radius: 10px;
+			box-shadow: 0 4px 6px rgba(10, 10, 6, 6);
+			max-width: 100%;
+			margin: 0 auto;
+
+		}
+
+		img {
+			display: flex;
+			margin: 0 auto;
+			max-width: 100%;
+			height: auto;
+			border-radius: 10px;
+			max-height: 200px;
+			box-shadow: 2px 2px 3px 3px;
+		}
+
+		.container .card:nth-last-child(-10+2) {
+			margin: 0 auto 50px auto;
+		}
+
+		.card {
+			width: 290px;
+			height: 210px;
+			background: white;
+			position: relative;
+			display: flex;
+			place-content: center;
+			place-items: center;
+			overflow: hidden;
+			border-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			margin: 7px;
+		}
+
+
+		.card::before {
+			content: '';
+			position: absolute;
+			width: 100px;
+			background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(0, 0, 0));
+			height: 170%;
+			animation: rotBGimg 4s linear infinite;
+			transition: all 0.7s linear;
+		}
+
+		@keyframes rotBGimg {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.card::after {
+			content: '';
+			position: absolute;
+			background: #27b9af;
+			;
+			inset: 5px;
+			border-radius: 15px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Welcome To Pet Shop!!!</h1>
+	<div class="container">
+		<div class="card">
+			<h2>Grooming Services</h2>
+			<a href="/api1/v1/groomingservice"><button>GET</button></a>
+			<p>All Grooming Services</p>
+		</div>
+		<div class="card">
+			<h2> Grooming Service By Id</h2>
+			<a href="/api1/v1/groomingserviceId"><button>GET</button></a>
+			<p>Retrieve Grooming Service By Id</p>
+		</div>
+		<div class="card">
+			<h2>Available Grooming Services</h2>
+			<a href="api1/v1/groomingservice/available"><button>GET</button></a>
+			<p>All available Grooming Services</p>
+		</div>
+		<div class="card">
+			<h2>Unavailable Grooming Services </h2>
+			<a href="api1/v1/groomingservice/unavailable"><button>GET</button></a>
+			<p>All Unavailable Grooming Services</p>
+		</div>
+		<div class="card">
+			<h2>Add Grooming Service</h2>
+			<a href="/api1/v1/groomingservicepost"><button>POST</button></a>
+			<p>Add Grooming Service Details</p>
+		</div>
+		<div class="card">
+			<h2>Update Grooming Service</h2>
+			<a href="/api1/v1/groomingserviceupdate"><button>PUT</button></a>
+			<p>Update Grooming Service Details</p>
+		</div>
+		<div class="card hidden">
+			<h2> Vaccinations</h2>
+			<a href="/api1/v1/vaccinations"><button>GET</button></a>
+			<p>All Vaccinations</p>
+		</div>
+		<div class="card hidden">
+			<h2>Vaccination By Id</h2>
+			<a href="/api1/v1/vaccinationId"><button>GET</button></a>
+			<p>Retrieve Vaccination By Id</p>
+		</div>
+		<div class="card hidden">
+			<h2>Add Vaccination </h2>
+			<a href="/api1/v1/vaccinationpost"><button>POST</button></a>
+			<p>Add Vaccination Details</p>
+		</div>
+		<div class="card hidden">
+			<h2>Update vaccination </h2>
+			<a href="/api1/v1/vaccinationupdate"><button>PUT</button></a>
+			<p>Update Vaccination Details</p>
+		</div>
+	</div>
+
+</body>
+
+</html>
